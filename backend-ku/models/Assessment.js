@@ -1,0 +1,41 @@
+const mongoose = require('mongoose');
+
+const assessmentSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  date: { type: Date, required: true },
+  status: { type: String, enum: ['Fit', 'Fit with Note', 'Unfit'], required: true },
+  decisionMessage: { type: String, default: '' },
+  lokasiKerja: String,
+  hasilAssessmentK3: String,
+  apdWajib: String,
+  daftarPeralatan: String,
+  dokumenJSA: String,
+  dokumenJSAName: String,
+  sertifikatKerja: String,
+  sertifikatKerjaName: String,
+  checklistSehat: Boolean,
+  checklistTekananNormal: Boolean,
+  checklistApdLengkap: Boolean,
+  checklistPeralatanSiap: Boolean,
+  checklistMemahamiJSA: Boolean,
+  checklistSertifikatBerlaku: Boolean,
+  checklistPeralatanTersedia: Boolean,
+  checklistPeralatanBaik: Boolean,
+  checklistPeralatanDiperiksa: Boolean,
+  checklistPeralatanAman: Boolean,
+  checklistPeralatanLengkap: Boolean,
+  tekananDarah: String,
+  kondisiKesehatan: String,
+  riskScale: String,
+  healthPhysical: String,
+  healthMental: String,
+  apdComplete: Boolean,
+  toolsOk: Boolean,
+  certValid: Boolean,
+  hasJantungDisease: Boolean,
+  hasMenularDisease: Boolean,
+  createdBy: { type: String, default: 'anonymous' },
+  createdAt: { type: Date, default: Date.now }
+});
+
+module.exports = mongoose.model('Assessment', assessmentSchema);
